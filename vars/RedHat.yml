@@ -3,7 +3,6 @@
 # file: vars/RedHat.yml
 
 podman_packages:
-  - podman
   - atomic-registries
   - btrfs-progs-devel
   - containernetworking-cni
@@ -23,5 +22,6 @@ podman_packages:
   - pkgconfig
   - runc
   - containers-common
-
-podman_manual_mapping: true
+  - podman
+  - skopeo
+  - buildah
