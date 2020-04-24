@@ -3,7 +3,6 @@
 # file: vars/RedHat.yml
 
 podman_packages:
-  - atomic-registries
   - btrfs-progs-devel
   - containernetworking-cni
   - device-mapper-devel
