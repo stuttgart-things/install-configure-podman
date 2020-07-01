@@ -1,9 +1,12 @@
 ---
 # tasks file for install-configure-podman
 - name: Load os_family dependent variables
-  include_vars: '{{ ansible_os_family }}.yml'
+  include_vars: '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yaml'
 
 - name: Install podman packages
   package:
     name: "{{ podman_packages }}"
     state: present
+
+
+    
