@@ -28,7 +28,8 @@ copy and paste the following (on any place of the filesystem of the ansible host
 ```
 cat <<EOF > install-configure-podman.yaml
 ---
-- hosts: all 
+- hosts: all
+  become: true
   roles:
     - role: install-configure-podman
 EOF 
