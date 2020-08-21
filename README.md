@@ -7,7 +7,8 @@ role for installing podman, buildah and skopeo on various os.
 
 <details><summary><textb> Install requirements (expand for details) </textb></summary>
 
-copy and paste the following into your terminal
+copy and paste the following into your terminal:
+
 ```
 cat <<EOF > /tmp/requirements.yaml
 - src: git@codehub.sva.de:Lab/stuttgart-things/supporting-roles/install-configure-podman.git
@@ -23,8 +24,8 @@ rm -rf /tmp/requirements.yaml
 <details><summary><textb> Example playbook (expand for details) </textb></summary>
 
 copy and paste the following (on any place of the filesystem of the ansible host) into your terminal:
-```
 
+```
 cat <<EOF > install-configure-podman.yaml
 ---
 - hosts: all 
