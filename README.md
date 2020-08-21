@@ -24,10 +24,10 @@ rm -rf /tmp/requirements.yaml
 
 copy and paste the following (on any place of the filesystem of the ansible host) into your terminal:
 ```
----
-cat <<EOF > install-configure-podman.yaml
-- hosts: all 
 
+cat <<EOF > install-configure-podman.yaml
+---
+- hosts: all 
   roles:
     - role: install-configure-podman
 EOF 
