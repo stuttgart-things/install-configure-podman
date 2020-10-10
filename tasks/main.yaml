@@ -17,16 +17,14 @@
   when: ansible_os_family == 'Debian'
 
 - name: Enable podman/buildah repository
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "deb {{ podman_ppa_repo }}"
     update_cache: yes
     filename: buildah
   when: ansible_os_family == 'Debian'
 
-- name: Install podman/buildah packages
-  apt:
-    name: "{{ podman_packages }}"
-    state: latest
+- name: Update apt cache on Debian
+  ansible.builtin.apt:
     update_cache: yes
   when: ansible_os_family == 'Debian'
 
