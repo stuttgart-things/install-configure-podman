@@ -1,5 +1,5 @@
 ---
-podman_ppa: "ppa:projectatomic/ppa"
+podman_ppa: "devel:kubic:libcontainers:stable"
 
 podman_packages:
   - software-properties-common
