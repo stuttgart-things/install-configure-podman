@@ -10,38 +10,27 @@
       paths:
         - 'vars'
 
-#- name: Add podman ppa
-#  ansible.builtin.apt_repository:
-#    repo: "{{ podman_ppa }}"
-#    codename: "{{ ansible_distribution_release }}"
-#    state: present
-#  when: ansible_os_family == 'Debian'
-
-- name: Add buildah repository key
-  apt_key:
-    url: https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_10/Release.key
+- name: Add podman/buildah repository key
+  ansible.builtin.apt_key:
+    url: "{{ podman_ppa_key }}"
     state: present
   when: ansible_os_family == 'Debian'
 
-- name: Enable buildah repository
+- name: Enable podman/buildah repository
   apt_repository:
-    repo: deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_10/ /
+    repo: "deb {{ podman_ppa_repo }}"
     update_cache: yes
     filename: buildah
   when: ansible_os_family == 'Debian'
 
-- name: Install buildah package
+- name: Install podman/buildah packages
   apt:
-    name: ['buildah', 'podman']
+    name: "{{ podman_packages }}"
     state: latest
     update_cache: yes
   when: ansible_os_family == 'Debian'
-
 
 - name: Install podman packages
   ansible.builtin.package:
     name: "{{ podman_packages }}"
     state: present
-
-
-    
