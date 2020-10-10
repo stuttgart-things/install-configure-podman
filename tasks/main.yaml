@@ -10,12 +10,12 @@
       paths:
         - 'vars'
 
-- name: Add podman ppa
-  ansible.builtin.apt_repository:
-    repo: "{{ podman_ppa }}"
-    codename: "{{ ansible_distribution_release }}"
-    state: present
-  when: ansible_os_family == 'Debian'
+#- name: Add podman ppa
+#  ansible.builtin.apt_repository:
+#    repo: "{{ podman_ppa }}"
+#    codename: "{{ ansible_distribution_release }}"
+#    state: present
+#  when: ansible_os_family == 'Debian'
 
 - name: Add buildah repository key
   apt_key:
