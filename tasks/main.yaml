@@ -17,6 +17,27 @@
     state: present
   when: ansible_os_family == 'Debian'
 
+- name: Add buildah repository key
+  apt_key:
+    url: https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_10/Release.key
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: Enable buildah repository
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_10/ /
+    update_cache: yes
+    filename: buildah
+  when: ansible_os_family == 'Debian'
+
+- name: Install buildah package
+  apt:
+    name: ['buildah', 'podman']
+    state: latest
+    update_cache: yes
+  when: ansible_os_family == 'Debian'
+
+
 - name: Install podman packages
   ansible.builtin.package:
     name: "{{ podman_packages }}"
