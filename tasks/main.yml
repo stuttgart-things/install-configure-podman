@@ -3,8 +3,15 @@
 - name: Load os_family dependent variables
   include_vars: '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yaml'
 
+- name: Add podman ppa
+  ansible.builtin.apt_repository:
+    repo: "{{ podman_ppa }}"
+    codename: "{{ ansible_distribution_release }}"
+    state: present
+  when: ansible_os_family == 'Debian'
+
 - name: Install podman packages
-  package:
+  ansible.builtin.package:
     name: "{{ podman_packages }}"
     state: present
 
