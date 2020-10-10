@@ -6,4 +6,3 @@ podman_packages:
   - buildah
   - podman
  
-podman_manual_mapping: True
