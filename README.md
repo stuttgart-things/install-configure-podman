@@ -1,34 +1,30 @@
-install-configure-podman
-=========
+stuttgart-things/install-configure-podman
+=========================================
 
 role for installing podman, buildah and skopeo on various os.
 
 ## Step 1: Install ansible requirements
-
-<details><summary><textb> Install requirements (expand for details) </textb></summary>
 
 copy and paste the following into your terminal:
 
 ```
 cat <<EOF > /tmp/requirements.yaml
 - src: git@codehub.sva.de:Lab/stuttgart-things/supporting-roles/install-configure-podman.git
+  version: stable
   scm: git
 EOF
 ansible-galaxy install -r /tmp/requirements.yaml --force
 rm -rf /tmp/requirements.yaml
 ```
-</details>
 
 ## Step 2: define & run playbook 
-
-<details><summary><textb> Example playbook (expand for details) </textb></summary>
 
 copy and paste the following (on any place of the filesystem of the ansible host) into your terminal:
 
 ```
 cat <<EOF > install-configure-podman.yaml
 ---
-- hosts: all
+- hosts: "{{ target_host }}"
   become: true
   roles:
     - role: install-configure-podman
@@ -37,11 +33,15 @@ EOF
 
 Execute playbook:
 ```
-ansible-playbook install-configure-podman.yaml -vv 
+ansible-playbook -i my_inventory install-configure-podman.yaml -vv 
 ```
 
-</details>
-
+Role history
+----------------
+| date  | who | changelog |
+|---|---|---|
+|2020-04-03  | Patrick Hermann | intial commit for this role on codehub
+|2020-10-10  | Patrick Hermann | Updated for using ansible collections, added Debian support; defined stable version
 
 License
 -------
@@ -51,5 +51,4 @@ BSD
 Author Information
 ------------------
 
-Patrick Hermann, 04/2020
-patrick.hermann@sva.de
+Patrick Hermann (patrick.hermann@sva.de); 04/2020
