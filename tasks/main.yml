@@ -1,7 +1,14 @@
 ---
 # tasks file for install-configure-podman
 - name: Load os_family dependent variables
-  include_vars: '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yaml'
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - '{{ ansible_distribution }}.yaml'
+        - '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yaml'
+      paths:
+        - 'vars'
 
 - name: Add podman ppa
   ansible.builtin.apt_repository:
