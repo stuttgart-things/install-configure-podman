@@ -1,17 +1,20 @@
-podman_packages:
-    - containernetworking-cni
-    - git
-    - glib2-devel
-    - glibc-devel
-    - iptables
-    - libgpg-error-devel
-    - libseccomp-devel
-    - libselinux-devel
-    - make
-    - ostree-devel
-    - pkgconfig
-    - runc
-    - containers-common
-    - podman
-    - skopeo
-    - buildah
+podman_os_packages:
+  - gcc
+  - containernetworking-cni
+  - git
+  - glib2-devel
+  - glibc-devel
+  - iptables
+  - libgpg-error-devel
+  - libseccomp-devel
+  - libselinux-devel
+  - make
+  - ostree-devel
+  - pkgconfig
+  - runc
+  - containers-common
+  - skopeo
+  - buildah
+
+podman_remote_packages:
+  - https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/33/Everything/x86_64/os/Packages/p/podman-2.1.1-10.fc33.x86_64.rpm
