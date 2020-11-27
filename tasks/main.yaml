@@ -33,12 +33,7 @@
     name: install-requirements
   vars:
     update_packages: true
-    remote_os_packages: "{{ podman_remote_os_package }}"
+    remote_os_packages: "{{ podman_remote_packages | default(omit) }}"
     python_modules: "{{ podman_python_modules }}"
     os_packages: "{{ podman_os_packages }}"
   tags: setup
-
-- name: Install podman packages
-  ansible.builtin.package:
-    name: "{{ podman_packages }}"
-    state: present
