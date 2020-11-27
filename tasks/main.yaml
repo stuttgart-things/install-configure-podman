@@ -10,15 +10,6 @@
       paths:
         - 'vars'
 
-- name: Install python requirements
-  include_role:
-    name: install-requirements
-  vars:
-    update_packages: false
-    python_modules: "{{ podman_python_modules }}"
-    os_packages: "{{ podman_os_packages }}"
-  tags: setup
-
 - name: Add podman/buildah repository key
   ansible.builtin.apt_key:
     url: "{{ podman_ppa_key }}"
@@ -36,6 +27,16 @@
   ansible.builtin.apt:
     update_cache: yes
   when: ansible_os_family == 'Debian'
+
+- name: Install python requirements
+  include_role:
+    name: install-requirements
+  vars:
+    update_packages: true
+    remote_os_packages: "{{ podman_remote_os_package }}"
+    python_modules: "{{ podman_python_modules }}"
+    os_packages: "{{ podman_os_packages }}"
+  tags: setup
 
 - name: Install podman packages
   ansible.builtin.package:
