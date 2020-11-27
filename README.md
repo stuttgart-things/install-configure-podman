@@ -12,6 +12,9 @@ cat <<EOF > /tmp/requirements.yaml
 - src: git@codehub.sva.de:Lab/stuttgart-things/supporting-roles/install-configure-podman.git
   version: stable
   scm: git
+- src: git@codehub.sva.de:Lab/stuttgart-things/supporting-roles/install-requirements.git
+  version: stable
+  scm: git
 EOF
 ansible-galaxy install -r /tmp/requirements.yaml --force
 rm -rf /tmp/requirements.yaml
