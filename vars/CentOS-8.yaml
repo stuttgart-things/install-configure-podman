@@ -1,4 +1,8 @@
 podman_os_packages:
+  - conmon
+  - containernetworking-plugins
+  - containers-common
+  - oci-runtime
   - gcc
   - containernetworking-cni
   - git
