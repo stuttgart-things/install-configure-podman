@@ -1,2 +1,8 @@
 ---
+podman_os_packages:
+  - gcc
+podman_python_modules:
+  - name: pyyaml
+  - name: selinux
+
 # defaults file for install-configure-podman
