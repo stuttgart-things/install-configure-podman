@@ -1,4 +1,4 @@
-podman_packages:
+podman_os_packages:
   - policycoreutils-python-utils-3.0-2.fc32.noarch
   - containernetworking-cni
   - git

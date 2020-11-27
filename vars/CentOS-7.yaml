@@ -2,7 +2,7 @@
 # role: ansible-role-podman
 # file: vars/RedHat.yml
 
-podman_packages:
+podman_os_packages:
   - podman
   - buildah
   - skopeo
