@@ -10,25 +10,11 @@
       paths:
         - 'vars'
 
-- name: Add podman/buildah repository key
-  ansible.builtin.apt_key:
-    url: "{{ podman_ppa_key }}"
-    state: present
+- name: Install debian prerequistes
+  include: prerequisites-debian.yaml
   when: ansible_os_family == 'Debian'
 
-- name: Enable podman/buildah repository
-  ansible.builtin.apt_repository:
-    repo: "deb {{ podman_ppa_repo }}"
-    update_cache: yes
-    filename: buildah
-  when: ansible_os_family == 'Debian'
-
-- name: Update apt cache on Debian
-  ansible.builtin.apt:
-    update_cache: yes
-  when: ansible_os_family == 'Debian'
-
-- name: Install python requirements
+- name: Install podman packages
   include_role:
     name: install-requirements
   vars:

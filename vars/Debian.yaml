@@ -3,7 +3,10 @@ podman_ppa_key: "https://download.opensuse.org/repositories/devel:kubic:libconta
 podman_ppa_repo: "http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_10/ /"
 
 podman_os_packages:
-  - gnupg
+  - libselinux-devel
+  - policycoreutils-python3
   - buildah
   - podman
  
+prerequisites: 
+  - gnupg

@@ -1,0 +1,22 @@
+- name: Install python requirements
+  include_role:
+    name: install-requirements
+  vars:
+    update_packages: true
+    os_packages: "{{ prerequisites }}"
+  tags: setup
+
+- name: Add podman/buildah repository key
+  ansible.builtin.apt_key:
+    url: "{{ podman_ppa_key }}"
+    state: present
+
+- name: Enable podman/buildah repository
+  ansible.builtin.apt_repository:
+    repo: "deb {{ podman_ppa_repo }}"
+    update_cache: yes
+    filename: buildah
+
+- name: Update apt cache on Debian
+  ansible.builtin.apt:
+    update_cache: yes
