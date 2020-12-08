@@ -6,7 +6,6 @@ podman_os_packages:
   - policycoreutils
   - selinux-basics
   - selinux-utils
-  - policycoreutils-python3
   - buildah
   - podman
   
