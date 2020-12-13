@@ -20,6 +20,6 @@ podman_os_packages:
   - containers-common
   - skopeo
   - buildah
-
+  - podman
 podman_remote_packages:
   - https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/33/Everything/x86_64/os/Packages/p/podman-2.1.1-10.fc33.x86_64.rpm
