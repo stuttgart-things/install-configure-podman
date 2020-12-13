@@ -1,5 +1,6 @@
 podman_os_packages:
   - conmon
+  - policycoreutils-python3
   - containernetworking-plugins
   - containers-common
   - oci-runtime
