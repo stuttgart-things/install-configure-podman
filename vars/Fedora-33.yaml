@@ -1,4 +1,5 @@
 podman_os_packages:
+  - policycoreutils-python
   - policycoreutils-python3
   - containernetworking-cni
   - git
