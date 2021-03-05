@@ -10,10 +10,8 @@ copy and paste the following into your terminal:
 ```
 cat <<EOF > /tmp/requirements.yaml
 - src: git@codehub.sva.de:Lab/stuttgart-things/supporting-roles/install-configure-podman.git
-  version: stable
   scm: git
 - src: git@codehub.sva.de:Lab/stuttgart-things/supporting-roles/install-requirements.git
-  version: stable
   scm: git
 collections:
 - name: community.general
