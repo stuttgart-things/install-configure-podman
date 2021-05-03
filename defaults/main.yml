@@ -4,7 +4,7 @@ podman_python_modules:
   - name: selinux
 
 configure_docker_registry_mirror: false
-docker_registry_mirror_secure: true
+docker_registry_mirror_secure: false
 podman_registry_config: /etc/containers/registries.conf
 docker_registry_mirror: |
   [[registry]]
