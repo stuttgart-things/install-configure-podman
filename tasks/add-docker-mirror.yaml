@@ -1,0 +1,8 @@
+---
+- name: Insert docker mirror config in {{ podman_registry_config }}
+  blockinfile:
+    path: "{{ podman_registry_config }}"
+    block: |
+      "{{ docker_registry_mirror }}"
+
+

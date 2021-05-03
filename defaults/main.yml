@@ -2,3 +2,13 @@
 podman_python_modules:
   - name: pyyaml
   - name: selinux
+
+configure_docker_registry_mirror: false
+docker_registry_mirror_secure: true
+podman_registry_config: /etc/containers/registries.conf
+docker_registry_mirror: |
+  [[registry]]
+  prefix = "docker.io"
+  insecure = {{ docker_registry_mirror_secure }}
+  location = "{{ docker_registry_mirror_url }}"
+# see https://github.com/containers/podman/issues/5764

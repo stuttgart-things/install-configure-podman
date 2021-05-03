@@ -1,5 +1,4 @@
 ---
-# tasks file for install-configure-podman
 - name: Load os_family dependent variables
   include_vars: "{{lookup('first_found', params)}}"
   vars:
@@ -23,3 +22,7 @@
     python_modules: "{{ podman_python_modules }}"
     os_packages: "{{ podman_os_packages }}"
   tags: setup
+
+- name: Add docker registry mirror
+  include: add-docker-mirror.yaml
+  when: configure_docker_registry_mirror|bool
