@@ -9,6 +9,6 @@ podman_registry_config: /etc/containers/registries.conf
 docker_registry_mirror: |
   [[registry]]
   prefix = "docker.io"
-  insecure = {{ docker_registry_mirror_insecure }}
+  insecure = {{ docker_registry_mirror_insecure | lower }}
   location = "{{ docker_registry_mirror_url }}"
 # see https://github.com/containers/podman/issues/5764
