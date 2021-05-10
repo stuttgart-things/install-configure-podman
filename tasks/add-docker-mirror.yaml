@@ -3,5 +3,5 @@
   blockinfile:
     path: "{{ podman_registry_config }}"
     block: "{{ docker_registry_mirror }}"
-
-
+    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+    insertafter: "# insecure = true"
