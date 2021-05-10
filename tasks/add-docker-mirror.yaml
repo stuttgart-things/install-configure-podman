@@ -1,7 +1,8 @@
 ---
 - name: Insert docker mirror config in {{ podman_registry_config }}
-  blockinfile:
+  ansible.builtin.blockinfile:
     path: "{{ podman_registry_config }}"
     block: "{{ docker_registry_mirror }}"
-    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+    marker: "# added registry mirror w/ ansible"
     insertafter: "# insecure = true"
+    backup: yes
