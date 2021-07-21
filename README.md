@@ -1,7 +1,7 @@
 stuttgart-things/install-configure-podman
 =========================================
 
-role for installing podman, buildah and skopeo on various os.
+installs and configures podman, buildah and skopeo on various linux os
 
 ## Step 1: Install ansible requirements
 
@@ -15,7 +15,10 @@ cat <<EOF > /tmp/requirements.yaml
   scm: git
 collections:
 - name: community.general
-  version: 1.3.2
+  version: 3.4.0
+- name: containers.podman
+  version: 1.6.1
+
 EOF
 ansible-galaxy install -r /tmp/requirements.yaml --force
 rm -rf /tmp/requirements.yaml
@@ -44,8 +47,8 @@ Role history
 ----------------
 | date  | who | changelog |
 |---|---|---|
-|2020-04-03  | Patrick Hermann | intial commit for this role on codehub
 |2020-10-10  | Patrick Hermann | Updated for using ansible collections, added Debian support; defined stable version
+|2020-04-03  | Patrick Hermann | intial commit for this role on codehub
 
 License
 -------
