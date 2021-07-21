@@ -13,14 +13,17 @@ cat <<EOF > /tmp/requirements.yaml
   scm: git
 - src: git@codehub.sva.de:Lab/stuttgart-things/supporting-roles/install-requirements.git
   scm: git
+
 collections:
 - name: community.general
   version: 3.4.0
 - name: containers.podman
   version: 1.6.1
-
 EOF
+
 ansible-galaxy install -r /tmp/requirements.yaml --force
+ansible-collection install -r /tmp/requirements.yaml --force
+
 rm -rf /tmp/requirements.yaml
 ```
 
