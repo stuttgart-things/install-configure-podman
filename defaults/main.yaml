@@ -12,3 +12,5 @@ docker_registry_mirror: |
   insecure = {{ docker_registry_mirror_insecure | lower }}
   location = "{{ docker_registry_mirror_url }}"
 # see https://github.com/containers/podman/issues/5764
+
+registry_config_path: /etc/containers/registries.conf
