@@ -1,0 +1,18 @@
+podman_os_packages:
+  - policycoreutils-python3
+  - containernetworking-cni
+  - git
+  - glib2-devel
+  - glibc-devel
+  - iptables
+  - libgpg-error-devel
+  - libseccomp-devel
+  - libselinux-devel
+  - make
+  - ostree-devel
+  - pkgconfig
+  - runc
+  - containers-common
+  - podman
+  - skopeo
+  - buildah
