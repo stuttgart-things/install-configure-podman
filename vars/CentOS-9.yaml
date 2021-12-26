@@ -9,7 +9,6 @@ podman_os_packages:
   - libseccomp-devel
   - libselinux-devel
   - make
-  - ostree-devel
   - pkgconfig
   - runc
   - containers-common
