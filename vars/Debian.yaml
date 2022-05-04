@@ -1,7 +1,7 @@
 ---
 ubuntu_version: 21.04
 podman_ppa_repo: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version }}/ /"
-podman_ppa_key: "{{podman_ppa_repo }}/Release.key"
+podman_ppa_key: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version }}//Release.key"
 
 podman_os_packages:
   - policycoreutils
