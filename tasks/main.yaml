@@ -11,7 +11,7 @@
 
 - name: Install debian prerequistes
   include: prerequisites-debian.yaml
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Debian' not ansible_distribution_version == '22.04'
 
 - name: Install podman packages
   include_role:
