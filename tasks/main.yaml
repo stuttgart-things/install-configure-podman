@@ -1,6 +1,6 @@
 ---
 - name: Load os_family dependent variables
-  include_vars: "{{lookup('first_found', params)}}"
+  ansible.builtin.include_vars: "{{lookup('first_found', params)}}"
   vars:
     params:
       files:
@@ -10,11 +10,11 @@
         - 'vars'
 
 - name: Install debian prerequistes
-  include: prerequisites-debian.yaml
+  ansible.builtin.include_tasks: prerequisites-debian.yaml
   when: ansible_os_family == 'Debian' and not ansible_distribution_version == '22.04'
 
 - name: Install podman packages
-  include_role:
+  ansible.builtin.include_role:
     name: install-requirements
   vars:
     update_packages: true
@@ -24,5 +24,5 @@
   tags: setup
 
 - name: Add docker registry mirror
-  include: add-docker-mirror.yaml
+  ansible.builtin.include_tasks: add-docker-mirror.yaml
   when: configure_docker_registry_mirror|bool
