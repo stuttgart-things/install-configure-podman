@@ -5,13 +5,18 @@ installs and configures podman, buildah and skopeo on various linux os
 
 ## Step 1: Install ansible requirements
 
+
+## Role installation
+
+<details><summary><b>Install this role on your ansible host (click here)</b></summary>
+
 copy and paste the following into your terminal:
 
 ```
 cat <<EOF > /tmp/requirements.yaml
-- src: git@codehub.sva.de:Lab/stuttgart-things/supporting-roles/install-configure-podman.git
+- src: https://github.com/stuttgart-things/install-configure-podman.git
   scm: git
-- src: git@codehub.sva.de:Lab/stuttgart-things/supporting-roles/install-requirements.git
+- src: https://github.com/stuttgart-things/install-requirements.git
   scm: git
 
 collections:
@@ -26,6 +31,10 @@ ansible-collection install -r /tmp/requirements.yaml --force
 
 rm -rf /tmp/requirements.yaml
 ```
+</details>
+
+
+
 
 ## Step 2: define & run playbook 
 
