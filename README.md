@@ -67,4 +67,4 @@ BSD
 Author Information
 ------------------
 
-Patrick Hermann (patrick.hermann@sva.de); 04/2020
+Patrick Hermann (patrick.hermann@sva.de); Stuttgart-Things; 04/2020

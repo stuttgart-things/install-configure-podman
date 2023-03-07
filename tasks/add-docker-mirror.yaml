@@ -3,4 +3,4 @@
   ansible.builtin.template:
     src: registries.conf.j2
     dest: "{{ registry_config_path }}"
-    backup: yes
+    backup: true

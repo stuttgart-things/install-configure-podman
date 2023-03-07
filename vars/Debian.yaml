@@ -9,6 +9,6 @@ podman_os_packages:
   - selinux-utils
   - buildah
   - podman
-  
+
 prerequisites: 
   - gnupg

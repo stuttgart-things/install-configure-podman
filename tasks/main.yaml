@@ -1,6 +1,6 @@
 ---
 - name: Load os_family dependent variables
-  ansible.builtin.include_vars: "{{lookup('first_found', params)}}"
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
   vars:
     params:
       files:

@@ -6,4 +6,3 @@ podman_os_packages:
   - podman
   - buildah
   - skopeo
-
