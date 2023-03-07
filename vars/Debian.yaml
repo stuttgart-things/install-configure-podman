@@ -10,5 +10,5 @@ podman_os_packages:
   - buildah
   - podman
 
-prerequisites: 
+prerequisites:
   - gnupg
