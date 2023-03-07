@@ -5,9 +5,6 @@ installs and configures podman, buildah and skopeo on various linux os
 
 ## Step 1: Install ansible requirements
 
-
-## Role installation
-
 <details><summary><b>Install this role on your ansible host (click here)</b></summary>
 
 copy and paste the following into your terminal:
