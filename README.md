@@ -33,9 +33,6 @@ rm -rf /tmp/requirements.yaml
 ```
 </details>
 
-
-
-
 ## Step 2: define & run playbook 
 
 copy and paste the following (on any place of the filesystem of the ansible host) into your terminal:
