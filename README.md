@@ -20,7 +20,7 @@ collections:
 - name: community.general
   version: 3.4.0
 - name: containers.podman
-  version: 1.6.1
+  version: 1.10.3
 EOF
 
 ansible-galaxy install -r /tmp/requirements.yaml --force
