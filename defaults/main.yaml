@@ -14,3 +14,25 @@ docker_registry_mirror: |
 # see https://github.com/containers/podman/issues/5764
 
 registry_config_path: /etc/containers/registries.conf
+
+install_tools: true
+buildah_version: 1.35.3
+skopeo_version: 1.15.0
+
+bin:
+  buildah:
+    bin_name: "buildah"
+    bin_version: "{{ buildah_version }}"
+    source_url: "https://github.com/containers/buildah/archive/refs/tags/{{ buildah_version }}.tar.gz"
+    bin_to_copy: "buildah-{{ buildah_version }}"
+    bin_dir: /usr/bin/
+    to_remove: "buildah-{{ buildah_version }}"
+    check_bin_version_before_installing: true
+  skopeo:
+    bin_name: "skopeo"
+    bin_version: "{{ skopeo_version }}"
+    source_url: "https://github.com/containers/skopeo/archive/refs/tags/v{{ skopeo_version }}.tar.gz"
+    bin_to_copy: "skopeo-{{ skopeo_version }}"
+    bin_dir: /usr/bin/
+    to_remove: "skopeo-{{ skopeo_version }}"
+    check_bin_version_before_installing: true
