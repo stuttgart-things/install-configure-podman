@@ -65,6 +65,8 @@ cat <<EOF > install-configure-podman.yaml
 EOF 
 ```
 
+</details>
+
 <details><summary>EXAMPLE EXECUTION</summary>
 
 ```bash
