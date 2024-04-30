@@ -27,6 +27,7 @@ bin:
     bin_to_copy: "buildah-{{ buildah_version }}"
     bin_dir: /usr/bin/
     to_remove: "buildah-{{ buildah_version }}"
+    version_cmd: " version"
     check_bin_version_before_installing: true
   skopeo:
     bin_name: "skopeo"
@@ -35,4 +36,5 @@ bin:
     bin_to_copy: "skopeo-{{ skopeo_version }}"
     bin_dir: /usr/bin/
     to_remove: "skopeo-{{ skopeo_version }}"
+    version_cmd: " --version"
     check_bin_version_before_installing: true
