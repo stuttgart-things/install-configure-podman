@@ -1,3 +1,4 @@
+---
 - name: Install python requirements
   ansible.builtin.include_role:
     name: install-requirements

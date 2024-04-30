@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: Patrick Hermann
   description: role for installing podman, buildah and skopeo om various os.
