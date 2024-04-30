@@ -17,9 +17,4 @@ podman_os_packages:
   - skopeo
   - buildah
   - skopeo-containers
-  - go-md2man
   - bzip2
-  - libassuan-devel
-  - gpgme-devel
-  - btrfs-progs-devel
-  - bats
