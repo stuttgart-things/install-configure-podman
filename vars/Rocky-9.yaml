@@ -1,3 +1,4 @@
+---
 podman_os_packages:
   - policycoreutils-python3
   - containernetworking-cni
@@ -15,3 +16,10 @@ podman_os_packages:
   - podman
   - skopeo
   - buildah
+  - skopeo-containers
+  - go-md2man
+  - bzip2
+  - libassuan-devel
+  - gpgme-devel
+  - btrfs-progs-devel
+  - bats
