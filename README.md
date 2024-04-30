@@ -18,7 +18,7 @@ cat <<EOF > /tmp/requirements.yaml
 
 collections:
 - name: community.general
-  version: 3.4.0
+  version: 8.6.0
 - name: containers.podman
   version: 1.10.3
 EOF
