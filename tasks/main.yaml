@@ -11,7 +11,7 @@
 
 - name: Install debian prerequistes
   ansible.builtin.include_tasks: prerequisites-debian.yaml
-  when: ansible_os_family == 'Debian' and not ansible_distribution_version == '22.04'
+  when: ansible_os_family == 'Debian' and not ansible_distribution_version == '22.04' and not ansible_distribution_version == '23.04'
 
 - name: Install podman packages
   ansible.builtin.include_role:
@@ -26,3 +26,7 @@
 - name: Add docker registry mirror
   ansible.builtin.include_tasks: add-docker-mirror.yaml
   when: configure_docker_registry_mirror|bool
+
+- name: Download and install Buildah + Skopeo
+  ansible.builtin.include_tasks: buildah.yaml
+  when: install_tools|bool
