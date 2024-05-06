@@ -11,6 +11,9 @@ on:
         description: release-message
         required: true
         type: string
+      release-message:
+        required: true
+        type: string
 
 jobs:
   release-ansible:
@@ -22,5 +25,5 @@ jobs:
       release-message: "${{ github.event.inputs.release-message }}"
       environment-name: k8s
       archive-kind: tar.gz
-      runs-on: ghr-install-configure-podman-sthings-cicd
+      runs-on: ghr-install-configure-podman-labda-test
       continue-error: false
