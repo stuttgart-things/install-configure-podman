@@ -86,10 +86,6 @@ buildah version
 buildah pull alpine
 ```
 ```bash
-# Show Image
-buildah images
-```
-```bash
 # Create Dockerfile
 cat <<EOF > Dockerfile
 FROM ubuntu:18.04
@@ -111,6 +107,26 @@ podman ps
 ```bash
 # Stop Container
 podman stop {container-name-or-id}
+```
+```bash
+# Copy file from local to container
+buildah copy container-name ./example.sh /usr/bin
+```
+```bash
+# Configure Image to run commands
+buildah config --cmd /usr/bin/example.sh container-name
+```
+```bash
+# Buildah unmount container
+buildah config --cmd /usr/bin/example.sh container-name
+```
+```bash
+# Buildah commit image
+ buildah commit container-name new-image-name
+```
+```bash
+# Show Image
+buildah images
 ```
 
 </details>
