@@ -7,13 +7,14 @@
 
     - name: Download and install buildah + skopeo
       ansible.builtin.apt:
-        name: "{{ item.value.bin_name }}"
-      loop: "{{ lookup('dict', bin, wantlist=True) }}"
+        name: "{{ item }}"
+      with_items:
+        - "{{ podman_tools }}"
   when: ansible_os_family == 'Debian'
 
 - name: Install tools on OS RedHat
   ansible.builtin.yum:
-    name: "{{ item.value.bin_name }}"
-    state: present
-  loop: "{{ lookup('dict', bin, wantlist=True) }}"
+    name: "{{ item }}"
+  with_items:
+    - "{{ podman_tools }}"
   when: ansible_os_family == 'RedHat'
