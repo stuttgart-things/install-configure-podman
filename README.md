@@ -87,6 +87,7 @@ buildah pull alpine
 ```
 ```bash
 # Create Dockerfile
+# Podman and Buildah default to Containerfile and will fall back to Dockerfile.
 cat <<EOF > Dockerfile
 FROM ubuntu:18.04
 RUN echo 'Hello, World!' > /test.txt
