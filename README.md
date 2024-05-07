@@ -268,7 +268,7 @@ Role history
 ----------------
 | date  | who | changelog |
 |---|---|---|
-|2023-30-04  | Andre Ebert | Added Buildah and Skopeo install, added Ansible- and Yamllint with skip rules and collection release workflow
+|2024-30-04  | Andre Ebert | Added Buildah and Skopeo install, added Ansible- and Yamllint with skip rules and collection release workflow
 |2020-10-10  | Patrick Hermann | Updated for using ansible collections, added Debian support; defined stable version
 |2020-04-03  | Patrick Hermann | intial commit for this role on codehub
 
@@ -276,7 +276,7 @@ Author Information
 ------------------
 
 ```yaml
-Andre Ebert (andre.ebert@sva.de); 04/2023
+Andre Ebert (andre.ebert@sva.de); 04/2024
 
 Patrick Hermann (patrick.hermann@sva.de); Stuttgart-Things; 04/2020
 ```
