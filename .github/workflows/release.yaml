@@ -11,9 +11,6 @@ on:
         description: release-message
         required: true
         type: string
-      release-message:
-        required: true
-        type: string
 
 jobs:
   release-ansible:
