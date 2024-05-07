@@ -75,7 +75,7 @@ ansible-playbook -i inventory install-configure-podman.yaml -vv
 
 </details>
 
-<details><summary>EXAMPLE USE-CASES BUILDAH</summary>
+<details><summary>EXAMPLE USE-CASES BUILDAH AND PODMAN</summary>
 
 ```bash
 # Check buildah version
@@ -83,19 +83,122 @@ buildah version
 ```
 ```bash
 # Pull Image
-sudo buildah pull alpine
+buildah pull alpine
 ```
 ```bash
 # Show Image
-sudo buildah images
+buildah images
 ```
 ```bash
-# Create Container
-sudo buildah from docker.io/library/alpine
+# Create Dockerfile
+cat <<EOF > Dockerfile
+FROM ubuntu:18.04
+RUN echo 'Hello, World!' > /test.txt
+EOF
 ```
 ```bash
-# Show Container
-sudo buildah containers
+# Build Image
+buildah build -t hello-world -f ./Dockerfile .
+```
+```bash
+# Run Podman (--rm = delete container after running)
+podman run -it hello-world cat /test.txt
+```
+```bash
+# Show Container name and ID
+podman ps
+```
+```bash
+# Stop Container
+podman stop {container-name-or-id}
+```
+
+</details>
+
+<details><summary>EXAMPLE USE-CASES PODMAN PLAY KUBE</summary>
+
+The Podman Play Kube Option is not available for remote clients, including Mac and Windows (excluding WSL2) machines, yet.
+
+Currently supported Kinds in Kubernetes:
+* `Pod`
+* `Deployment`
+* `PersistentVolumeClaim`
+* `ConfigMap`
+
+```yaml
+# Create Pod
+cat <<EOF > example-pod.yaml
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-pod-2
+  labels:
+    app: hello-world
+spec:
+  containers:
+  - name: hello-world-sh
+    image: busybox
+    command: ['sh', '-c', 'while true; do echo "Hello World"; sleep 2; done']
+  - name: hello-world-http
+    image: busybox
+    command: ['sh','-c', 'echo "hello world" > index.html && /bin/httpd -p 9000 -f']
+    ports:
+    - containerPort: 9000
+      protocol: TCP
+
+EOF
+```
+
+### Service
+
+<details><summary>SERVICE TO EXPOSE POD TO PUBLIC</summary>
+
+```yaml
+# Create Service to expose pod to public
+cat <<EOF > example-service.yaml
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-world-svc
+spec:
+  type: NodePort           
+  ports:
+  - port: 80
+    targetPort: 9000
+  selector:
+    app: hello-world
+
+EOF
+```
+</details>
+
+##
+
+```bash
+# Create pod
+podman play kube example-pod.yaml
+```
+```bash
+# Tear down pod
+podman play kube --down example-pod.yaml
+```
+
+</details>
+
+<details><summary>EXAMPLE USE-CASE PODMAN GENERATE KUBE</summary>
+
+### GENERATE KUBE YAML
+
+Note: When using volumes and generating a Kubernetes YAML for an unprivileged and rootless podman container on an SELinux enabled system, one of the following options must be completed:
+* `Add the “privileged: true” option to the pod spec` 
+* `Add type: spc_t under the securityContext seLinuxOptions in the pod spec` 
+* `Relabel the volume via the CLI command chcon -t container_file_t -R /directory` 
+
+```bash
+# Generate yaml from Kubernetes Ressource
+podman generate kube example-pod-name
 ```
 
 </details>
