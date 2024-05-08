@@ -14,3 +14,11 @@ docker_registry_mirror: |
 # see https://github.com/containers/podman/issues/5764
 
 registry_config_path: /etc/containers/registries.conf
+
+install_tools: true
+buildah_version: 1.35.3
+skopeo_version: 1.15.0
+
+podman_tools:
+  - buildah
+  - skopeo
