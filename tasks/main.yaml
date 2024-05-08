@@ -10,7 +10,7 @@
         - 'vars'
 
 - name: Install debian prerequistes
-  ansible.builtin.include_tasks: prerequisites-debian.yaml
+  ansible.builtin.include_tasks: install-prerequisites-debian.yaml
   when: ansible_os_family == 'Debian' and not ansible_distribution_version == '22.04' and not ansible_distribution_version == '23.04'
 
 - name: Install podman packages
@@ -28,5 +28,5 @@
   when: configure_docker_registry_mirror|bool
 
 - name: Download and install Buildah + Skopeo
-  ansible.builtin.include_tasks: buildah.yaml
+  ansible.builtin.include_tasks: install-tools.yaml
   when: install_tools|bool
