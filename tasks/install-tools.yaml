@@ -5,7 +5,7 @@
       ansible.builtin.apt:
         update_cache: true
 
-    - name: Download and install podman tools
+    - name: Download and install buildah + skopeo
       ansible.builtin.apt:
         name: "{{ item }}"
       with_items:
