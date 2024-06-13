@@ -1,7 +1,7 @@
 ---
-ubuntu_version: 23.04
+ubuntu_version: 24.04
 podman_ppa_repo: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version }}/ /"
-podman_ppa_key: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version }}//Release.key"
+podman_ppa_key: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version }}/Release.key"
 
 podman_os_packages:
   - policycoreutils
